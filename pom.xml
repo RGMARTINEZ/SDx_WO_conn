@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.4.RELEASE</version>
+  </parent>
+
+  <groupId>com.kadme</groupId>
+  <artifactId>SDx_WO_conn</artifactId>
+  <version>20250120</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <executable>true</executable>
+          <mainClass>com.wavecomm.SDx.SDx_Application</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.0</version>
+      </plugin>
+      <plugin>
+        <groupId>external.atlassian.jgitflow</groupId>
+        <artifactId>jgitflow-maven-plugin</artifactId>
+        <version>1.0-m5.1</version>
+        <configuration>
+          <noDeploy>true</noDeploy>
+          <flowInitContext>
+            <releaseBranchPrefix>release/${project.artifactId}-</releaseBranchPrefix>
+            <versionTagPrefix>${project.artifactId}-</versionTagPrefix>
+          </flowInitContext>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.0</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+
+    <!-- Dependencias LOCALES que instalaste manualmente -->
+    <dependency>
+      <groupId>local.manual</groupId>
+      <artifactId>whereoil-tool-common</artifactId>
+      <version>5.34</version>
+    </dependency>
+    <dependency>
+      <groupId>local.manual</groupId>
+      <artifactId>whereoil-rest-client</artifactId>
+      <version>5.2.0-fs</version>
+    </dependency>
+    <dependency>
+      <groupId>local.manual</groupId>
+      <artifactId>whereoil-tool-utils</artifactId>
+      <version>5.25</version>
+    </dependency>
+
+    <!-- Dependencias PÚBLICAS desde Maven Central -->
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20220320</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.15</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>1.10.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.mashape.unirest</groupId>
+      <artifactId>unirest-java</artifactId>
+      <version>1.4.9</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.6.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.6.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.6.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>3.14.9</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sap.cloud.db.jdbc</groupId>
+      <artifactId>ngdbc</artifactId>
+      <version>2.18.13</version>
+    </dependency>
+    
+    <!-- Spring Boot Core (resuelve beans, annotations, autoconfig, etc) -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+	
+	<!-- Google Guava -->
+	<dependency>
+	    <groupId>com.google.guava</groupId>
+	    <artifactId>guava</artifactId>
+	    <version>23.0</version>
+	</dependency>
+	
+	<!-- Apache Commons Lang (legacy y nuevo) -->
+	<dependency>
+	    <groupId>commons-lang</groupId>
+	    <artifactId>commons-lang</artifactId>
+	    <version>2.6</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.7</version>
+	</dependency>
+	<dependency>
+	  <groupId>local.manual</groupId>
+	  <artifactId>whereoil-rest-client-common</artifactId>
+	  <version>5.2.0-fs</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+	
+	<dependency>
+	  <groupId>commons-io</groupId>
+	  <artifactId>commons-io</artifactId>
+	  <version>2.6</version> <!-- O una versión igual o mayor a la del código fuente -->
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.quartz-scheduler</groupId>
+	  <artifactId>quartz</artifactId>
+	  <version>2.3.0</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>com.kadme</groupId>
+	  <artifactId>whereoil-model</artifactId>
+	  <version>5.2.0-fs</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-quartz</artifactId>
+	</dependency>
+
+    
+
+
+  </dependencies>
+  
+  
+
+  <name>SDx_WO_conn</name>
+
+</project>
